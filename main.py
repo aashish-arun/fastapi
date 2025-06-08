@@ -1,3 +1,5 @@
+# To access the interactive documentation, first activate .venv and run this file using uvicorn. Then click the link which will redirect you to the live server. And in the url of the live server add the /docs at the end of the url string.
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 app = FastAPI()
