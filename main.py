@@ -17,12 +17,12 @@ def create_item(item:Item): # This is the cmd used instead of curl in windows fo
     items.append(item)
     return items
 
-@app.get("/items") 
+@app.get("/items", response_model=list[Item]) 
 def list_items(limit:int=10): # This is the cmd used instead of curl in windows for post requests "Invoke-WebRequest -Uri "http://localhost:8000/items?limit=item_limit""
     return items[0:limit]
 
 
-@app.get("/items/{item_id}") 
+@app.get("/items/{item_id}", response_model=Item) 
 def get_item(item_id:int) -> Item: # This is the cmd used instead of curl in windows for get requests "Invoke-WebRequest -Uri "http://localhost:8000/items/item_id""
     if item_id < len(items):
         return items[item_id]
